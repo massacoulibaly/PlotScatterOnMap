@@ -11,6 +11,7 @@ from matplotlib.animation import FuncAnimation
 import matplotlib.animation as animation
 
 
+
 def axe_projection(ax = None,limit = None):
     """
         param ax: type axe sur lequel sera projeté la carte de la région concernée
@@ -26,8 +27,6 @@ def axe_projection(ax = None,limit = None):
 def nom_ville(ax , x, y, name):
     for i, txt in enumerate(name):
         ax.text(x[i]+0.1, y[i]+0.1, txt, fontsize=9)
-
-
 
 
 def plot_geo_time_value_mp4(x, y, year, value, fig= None, axs=None, hue='', **kwargs):
@@ -88,8 +87,8 @@ def plot_geo_time_value_mp4(x, y, year, value, fig= None, axs=None, hue='', **kw
             axs.set_title('France ' +str(i)+ '\n'+ hue);
         return scat,
     
-    anim = FuncAnimation(fig,animate, frames=year,repeat=True, interval = 2000, blit=True)
+    anim = FuncAnimation(fig,animate, frames=year,repeat=True, interval = 2500, blit=True)
     plt.show()
     Writer = animation.writers['ffmpeg']
-    writer = Writer(fps=25, metadata=dict(artist='Me'), bitrate=1800)
+    writer = Writer(fps=0.6, metadata=dict(artist='Me'), bitrate=2000)
     anim.save('graph.mp4', writer = writer)
