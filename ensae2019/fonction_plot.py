@@ -82,7 +82,8 @@ def plot_geo_time_value(x, y, year, value, axs=None, hue='', **kwargs):
                 ax0.set_title('France ' +str(an)+ '\n'+ hue);
                 j = j+1
             else:
-                i = i+1
+                if i < nrow-1:
+                    i = i+1
                 j=0
                 ax0 = axs[(i,j)]
                 axe_projection(ax=ax0, limit=lim_metropole)
